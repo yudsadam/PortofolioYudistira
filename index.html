@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yudistira Adam Mulyana — Biology Researcher &amp; Science Communicator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =============================================
+   DESIGN TOKENS
+   ============================================= */
+:root {
+  --paper:      #F6F7F1;
+  --paper-deep: #EEF0E7;
+  --paper-mid:  #E8EBE0;
+  --ink:        #12202E;
+  --ink-soft:   #3D4F5C;
+  --ink-muted:  #6B7C8A;
+  --yale:       #1B4079;
+  --yale-light: #2451A0;
+  --air:        #4D7C8A;
+  --sage:       #7F9C96;
+  --leaf:       #8FAD88;
+  --mindaro:    #CBDF90;
+  --line:       rgba(18,32,46,0.12);
+  --line-soft:  rgba(18,32,46,0.07);
+  --max:        1120px;
+  --nav-h:      64px;
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+ul { margin: 0; padding: 0; }
+
+::selection { background: var(--mindaro); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--yale); outline-offset: 3px; }
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+h1, h2, h3, h4 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+p { margin: 0; }
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--air);
+  font-weight: 500;
+}
+
+/* =============================================
+   LAYOUT UTILITIES
+   ============================================= */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+@media (max-width: 600px) { .wrap { padding: 0 24px; } }
+
+section { padding: 96px 0; }
+.rule { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.section-title {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  margin-top: 16px;
+  line-height: 1.1;
+}
+
+/* =============================================
+   SCROLL REVEAL
+   ============================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* =============================================
+   NAVIGATION
+   ============================================= */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(246, 247, 241, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: var(--line-soft);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+@media (max-width: 600px) { .nav-inner { padding: 0 24px; } }
+
+.logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.logo span { color: var(--air); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 0.84rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--yale);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-cta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.74rem;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 8px 16px;
+  border-radius: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* Hamburger */
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  z-index: 99;
+  padding: 24px 40px 32px;
+  flex-direction: column;
+  gap: 20px;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-family: 'Newsreader', serif;
+  color: var(--ink-soft);
+  transition: color 0.2s;
+}
+.nav-drawer a:hover { color: var(--yale); }
+
+@media (max-width: 760px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+}
+
+/* =============================================
+   HERO — CENTERED WITH CIRCULAR PORTRAIT
+   ============================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 64px) 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 8% 15%, rgba(143,173,136,0.22) 0 14px, transparent 15px),
+    radial-gradient(circle at 93% 10%, rgba(127,156,150,0.18) 0 10px, transparent 11px),
+    radial-gradient(circle at 85% 85%, rgba(203,223,144,0.2) 0 12px, transparent 13px),
+    radial-gradient(circle at 5% 90%, rgba(77,124,138,0.15) 0 8px, transparent 9px),
+    radial-gradient(circle at 96% 50%, rgba(27,64,121,0.12) 0 7px, transparent 8px),
+    radial-gradient(circle at 50% 96%, rgba(143,173,136,0.14) 0 9px, transparent 10px);
+}
+
+/* Circular portrait */
+.hero-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--paper-deep);
+  border: 1.5px solid var(--line);
+  overflow: hidden;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 4px 32px rgba(18,32,46,0.08);
+}
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero-avatar-initials {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--yale);
+  letter-spacing: 0.04em;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+}
+.hero-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+.hero-name {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.hero-identity-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.hero-identity-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  color: var(--air);
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--paper-deep);
+}
+.hero-h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--yale);
+}
+.hero-lede {
+  font-size: 1.04rem;
+  color: var(--ink-soft);
+  line-height: 1.72;
+  max-width: 48ch;
+  margin-bottom: 36px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 2px;
+  display: inline-block;
+  transition: transform 0.15s, background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--yale); color: var(--paper); }
+.btn-primary:hover { background: var(--ink); }
+.btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+.hero-socials {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social-link {
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+.social-link:hover { color: var(--yale); }
+.social-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+@media (max-width: 600px) {
+  .hero-content { padding: 40px 24px; }
+}
+
+
+/* =============================================
+   ABOUT
+   ============================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+.about-body p {
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+  line-height: 1.78;
+  margin-bottom: 20px;
+}
+.about-body p:last-child { margin-bottom: 0; }
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.specimen {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 28px 26px;
+  background: var(--paper-deep);
+  position: relative;
+  overflow: hidden;
+}
+.specimen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(127,156,150,0.3) 0 7px, transparent 8px),
+    radial-gradient(circle at 82% 15%, rgba(143,173,136,0.25) 0 9px, transparent 10px),
+    radial-gradient(circle at 65% 75%, rgba(203,223,144,0.3) 0 6px, transparent 7px);
+}
+.specimen .eyebrow { margin-bottom: 18px; display: block; }
+.specimen dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 18px;
+  font-size: 0.87rem;
+}
+.specimen dt {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--air);
+  white-space: nowrap;
+}
+.specimen dd { margin: 0; color: var(--ink); }
+
+.about-keywords {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.keyword-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  font-family: 'Newsreader', serif;
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  transition: border-color 0.2s, color 0.2s;
+}
+.keyword-pill:hover { border-color: var(--yale); color: var(--ink); }
+.keyword-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.keyword-dot.yale { background: var(--yale); }
+.keyword-dot.air { background: var(--air); }
+.keyword-dot.leaf { background: var(--leaf); }
+
+/* =============================================
+   EXPERIENCE — DUAL TIMELINE
+   ============================================= */
+.track-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 64px;
+}
+@media (max-width: 860px) {
+  .track-grid { grid-template-columns: 1fr; gap: 64px; }
+}
+
+.track-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.track-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.track-label.lab .track-dot { background: var(--yale); }
+.track-label.lab .eyebrow { color: var(--yale); }
+.track-label.comm .track-dot { background: var(--leaf); }
+.track-label.comm .eyebrow { color: var(--leaf); }
+
+.timeline {
+  border-left: 1px solid var(--line);
+  padding-left: 0;
+  margin-left: 4px;
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 44px 36px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 7px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--sage);
+  transition: border-color 0.2s, background 0.2s;
+}
+.track-lab .tl-item::before { border-color: var(--yale); }
+.track-comm .tl-item::before { border-color: var(--leaf); }
+.tl-item:hover::before { background: var(--paper-deep); }
+
+.tl-card {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  padding: 20px 22px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.tl-card:hover {
+  border-color: var(--line);
+  box-shadow: 0 2px 16px rgba(18,32,46,0.06);
+}
+.tl-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--air);
+  margin-bottom: 8px;
+  display: block;
+}
+.tl-role {
+  font-family: 'Newsreader', serif;
+  font-size: 1.18rem;
+  line-height: 1.25;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.tl-org {
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+.tl-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.tl-list li {
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+.tl-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--sage);
+  font-size: 0.75rem;
+  top: 2px;
+}
+
+/* =============================================
+   RESEARCH
+   ============================================= */
+#research { background: var(--paper-deep); }
+
+.research-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 52px 56px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.research-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--yale), var(--air), var(--sage));
+}
+@media (max-width: 600px) { .research-card { padding: 32px 28px; } }
+
+.gene-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--yale);
+  color: var(--yale);
+  padding: 5px 13px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.gene-badge em { font-style: italic; font-weight: 500; }
+
+.research-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  line-height: 1.32;
+  max-width: 56ch;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+.research-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 40px;
+  margin-bottom: 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+@media (max-width: 680px) { .research-meta { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .research-meta { grid-template-columns: 1fr; } }
+
+.research-meta-item .eyebrow { margin-bottom: 4px; display: block; }
+.research-meta-value {
+  font-family: 'Newsreader', serif;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.research-summary {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.78;
+  max-width: 64ch;
+  margin-bottom: 28px;
+}
+
+.research-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.research-tags span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--paper-deep);
+}
+
+/* =============================================
+   SKILLS
+   ============================================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 64px;
+}
+@media (max-width: 700px) {
+  .skills-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.skill-category .eyebrow { display: block; margin-bottom: 16px; }
+
+.pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  background: var(--paper);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  letter-spacing: 0.02em;
+}
+.pill:hover {
+  border-color: var(--sage);
+  color: var(--ink);
+  background: var(--paper-deep);
+}
+
+/* Training strip */
+.training-strip {
+  margin-top: 64px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 48px;
+}
+.training-strip .eyebrow { margin-bottom: 24px; display: block; }
+.training-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+@media (max-width: 700px) { .training-items { grid-template-columns: 1fr; } }
+
+.training-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line-soft);
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.training-item:nth-child(odd) { padding-right: 32px; }
+.training-item:nth-child(even) { padding-left: 32px; border-left: 1px solid var(--line-soft); }
+@media (max-width: 700px) {
+  .training-item:nth-child(odd), .training-item:nth-child(even) {
+    padding: 20px 0;
+    border-left: none;
+  }
+}
+
+.training-item .tl-date { display: block; padding-top: 2px; font-size: 0.68rem; }
+.t-name {
+  font-family: 'Newsreader', serif;
+  font-size: 1.02rem;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.t-org { color: var(--ink-muted); font-size: 0.84rem; }
+
+/* =============================================
+   GALLERY
+   ============================================= */
+#gallery { background: var(--paper-deep); }
+
+.gallery-grid {
+  columns: 3 280px;
+  column-gap: 16px;
+}
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper-mid);
+  border: 1px solid var(--line-soft);
+}
+.gallery-item:nth-child(3n+1) { height: 280px; }
+.gallery-item:nth-child(3n+2) { height: 220px; }
+.gallery-item:nth-child(3n+3) { height: 320px; }
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--paper-mid);
+  transition: background 0.25s;
+}
+.gallery-item:hover .gallery-placeholder {
+  background: var(--paper-deep);
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18,32,46,0.08);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.gallery-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-align: center;
+  padding: 0 20px;
+}
+.gallery-icon { opacity: 0.2; }
+
+/* =============================================
+   EDUCATION
+   ============================================= */
+.edu-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 36px 40px;
+  background: var(--paper-deep);
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+@media (max-width: 600px) {
+  .edu-card { padding: 28px 24px; flex-direction: column; gap: 20px; }
+}
+.edu-year-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--air);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.edu-body h3 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.edu-sub {
+  color: var(--air);
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+}
+.edu-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--paper);
+}
+.edu-track::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--leaf);
+  flex-shrink: 0;
+}
+
+/* =============================================
+   CONTACT SECTION
+   ============================================= */
+#contact-section {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 120px 0;
+}
+.contact-inner {
+  max-width: 660px;
+}
+.contact-inner .eyebrow {
+  color: var(--sage);
+  margin-bottom: 24px;
+  display: block;
+}
+.contact-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--paper);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+.contact-subtitle {
+  font-size: 1.05rem;
+  color: rgba(246,247,241,0.65);
+  line-height: 1.72;
+  max-width: 46ch;
+  margin-bottom: 44px;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.btn-light {
+  background: var(--paper);
+  color: var(--ink);
+}
+.btn-light:hover {
+  background: var(--mindaro);
+  color: var(--ink);
+}
+.btn-outline-light {
+  border: 1px solid rgba(246,247,241,0.3);
+  color: var(--paper);
+}
+.btn-outline-light:hover {
+  border-color: var(--paper);
+  background: rgba(246,247,241,0.08);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(246,247,241,0.08);
+  padding: 28px 0;
+}
+.foot-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) { .foot-inner { padding: 0 24px; } }
+.foot-inner span {
+  font-size: 0.74rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: rgba(246,247,241,0.35);
+  letter-spacing: 0.04em;
+}
+
+/* =============================================
+   ORGANIZATIONS (originally section 6)
+   ============================================= */
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .org-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .org-grid { grid-template-columns: 1fr; } }
+
+.org-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 24px;
+  background: var(--paper);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.org-card:hover {
+  border-color: rgba(77,124,138,0.4);
+  box-shadow: 0 2px 20px rgba(18,32,46,0.05);
+}
+.org-card .tl-date { display: block; margin-bottom: 12px; font-size: 0.66rem; }
+.org-card h4 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.org-card .org-sub {
+  font-size: 0.84rem;
+  color: var(--air);
+  margin-bottom: 12px;
+}
+.org-card p {
+  font-size: 0.87rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- =============================================
+     NAVIGATION
+     ============================================= -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top">YUDISTIRA <span>ADAM MULYANA</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact-section">Contact</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#about" class="drawer-link">About</a>
+  <a href="#experience" class="drawer-link">Experience</a>
+  <a href="#research" class="drawer-link">Research</a>
+  <a href="#skills" class="drawer-link">Skills</a>
+  <a href="#gallery" class="drawer-link">Gallery</a>
+  <a href="#education" class="drawer-link">Education</a>
+  <a href="#contact-section" class="drawer-link">Contact</a>
+</div>
+
+<!-- =============================================
+     HERO
+     ============================================= -->
+<section class="hero" id="top">
+
+  <div class="hero-content">
+    <!-- Circular avatar -->
+    <div class="hero-avatar reveal">
+      <!-- Pasang foto: ganti span di bawah dengan <img src="foto.jpg" alt="Yudistira Adam Mulyana"> -->
+      <span class="hero-avatar-initials">YAM</span>
+    </div>
+
+    <div class="hero-identity reveal reveal-delay-1">
+      <div class="hero-name">Yudistira Adam Mulyana</div>
+      <div class="hero-identity-tags">
+        <span class="hero-identity-tag">Biology Researcher</span>
+        <span class="hero-identity-tag">Stem Cell Enthusiast</span>
+        <span class="hero-identity-tag">Science Communicator</span>
+      </div>
+    </div>
+
+    <h1 class="hero-h1 reveal reveal-delay-2">Bridging the <em>bench</em> &mdash; and the science on it &mdash; <em>to people.</em></h1>
+
+    <p class="hero-lede reveal reveal-delay-3">Final-year Biology student at Universitas Indonesia, working at the bench on stem-cell therapy and gene expression, and at the keyboard turning findings into stories people outside the lab can actually follow.</p>
+
+    <div class="hero-actions reveal reveal-delay-4">
+      <a class="btn btn-primary" href="#experience">View experience</a>
+      <a class="btn btn-ghost" href="#contact-section">Contact</a>
+    </div>
+
+    <div class="hero-socials reveal reveal-delay-4">
+      <a class="social-link" href="https://linkedin.com/in/yudistiraadam" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="social-link" href="mailto:yudistiraadam04@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     ABOUT
+     ============================================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">01 &mdash; About</span>
+    </div>
+    <h2 class="section-title reveal">From cell culture hood to byline.</h2>
+
+    <div class="about-grid" style="margin-top: 48px;">
+      <div class="about-body reveal">
+        <p>I'm a final-year Biology student with hands-on experience across molecular biology, mammalian cell culture, microbiology, and preclinical research &mdash; comfortable running RNA extraction, qPCR, and histological staining as part of an everyday lab routine.</p>
+        <p>Alongside the bench work, I've spent an equal amount of time on the communication side: tutoring, mentoring, writing for a digital newsroom, and leading media teams for university-wide events. I'm drawn to the intersection of the two &mdash; using scientific rigor to inform, and communication skill to make sure the findings actually reach the people they're meant for.</p>
+        <p>I'm currently looking to bring both halves of that into the pharmaceutical and healthcare industry, including roles that sit between science and marketing.</p>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="specimen reveal reveal-delay-1">
+          <span class="eyebrow">Specimen record</span>
+          <dl>
+            <dt>Field</dt><dd>Molecular &amp; Cell Biology</dd>
+            <dt>Institution</dt><dd>Universitas Indonesia</dd>
+            <dt>Status</dt><dd>Final-year, B.Sc. Biology</dd>
+            <dt>Thesis</dt><dd>UC-MSC &amp; Corneal Endothelium</dd>
+            <dt>Focus</dt><dd>Stem cell therapy, ocular tissue regeneration</dd>
+            <dt>Adjacent</dt><dd>Science communication, digital media</dd>
+          </dl>
+        </div>
+
+        <div class="about-keywords reveal reveal-delay-2">
+          <div class="keyword-pill">
+            <span class="keyword-dot yale"></span>
+            Research
+          </div>
+          <div class="keyword-pill">
+            <span class="keyword-dot air"></span>
+            Communication
+          </div>
+          <div class="keyword-pill">
+            <span class="keyword-dot leaf"></span>
+            Leadership
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     EXPERIENCE
+     ============================================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">02 &mdash; Experience</span>
+    </div>
+    <h2 class="section-title reveal">Two tracks, one person.</h2>
+    <p class="reveal" style="color:var(--ink-soft); margin-top:12px; margin-bottom:56px; font-size:1.02rem;">The bench and the byline, running in parallel.</p>
+
+    <div class="track-grid">
+
+      <!-- LAB TRACK -->
+      <div class="track">
+        <div class="track-label lab reveal">
+          <span class="track-dot"></span>
+          <span class="eyebrow">In the lab</span>
+        </div>
+        <div class="timeline track-lab">
+
+          <div class="tl-item reveal">
+            <div class="tl-card">
+              <span class="tl-date">AUG 2025 &mdash; JUN 2026</span>
+              <div class="tl-role">Research Assistant</div>
+              <div class="tl-org">Indonesia Medical Education and Research Institute</div>
+              <ul class="tl-list">
+                <li>Assisted preclinical research on stem-cell-based therapy and ocular disease models.</li>
+                <li>Isolated extracellular vesicles (exosomes) and prepared samples for downstream analysis.</li>
+                <li>Performed RNA extraction, qPCR, and cell culture for cell characterization and gene expression studies.</li>
+                <li>Conducted H&amp;E staining and histological evaluation of tissue samples.</li>
+                <li>Ran mammalian cell culture experiments (UC-MSC) &mdash; expansion, maintenance, harvesting, and viability assessment under aseptic conditions.</li>
+                <li>Maintained lab records in compliance with SOPs, biosafety regulations, and GLP principles.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-1">
+            <div class="tl-card">
+              <span class="tl-date">JUN 2025 &mdash; JUL 2025</span>
+              <div class="tl-role">Intern</div>
+              <div class="tl-org">Daewoong Pharmaceutical</div>
+              <ul class="tl-list">
+                <li>Cultured HeLa cells, UC-MSC, and iPSC.</li>
+                <li>Performed RNA extraction, cDNA synthesis, PCR, and gel electrophoresis.</li>
+                <li>Observed colon organoid culture through direct demonstration.</li>
+                <li>Practiced core cell-culture techniques: seeding, passaging, counting, thawing, and cryopreservation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-2">
+            <div class="tl-card">
+              <span class="tl-date">FEB 2025 &mdash; JUN 2025</span>
+              <div class="tl-role">Microbiology Laboratory Assistant</div>
+              <div class="tl-org">University of Indonesia</div>
+              <ul class="tl-list">
+                <li>Prepared culture media, reagents, and equipment for practical sessions.</li>
+                <li>Guided students through lab procedure, data collection, and result interpretation.</li>
+                <li>Assisted instruction on microbial culture, bacterial staining, fermentation, enzyme assays, coliform analysis, and biochemical identification.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-3">
+            <div class="tl-card">
+              <span class="tl-date">FEB 2025 &mdash; JUN 2025</span>
+              <div class="tl-role">Animal Physiology Laboratory Assistant</div>
+              <div class="tl-org">University of Indonesia</div>
+              <ul class="tl-list">
+                <li>Assessed lab reports, quizzes, and practical assignments with constructive feedback.</li>
+                <li>Assisted practical sessions on microscopy, blood physiology, ECG/EKG interpretation, kymograph analysis, and reproductive physiology.</li>
+                <li>Coordinated with fellow assistants and lecturers to keep practical classes on time and aligned with course goals.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COMM TRACK -->
+      <div class="track">
+        <div class="track-label comm reveal">
+          <span class="track-dot"></span>
+          <span class="eyebrow">Communicating science</span>
+        </div>
+        <div class="timeline track-comm">
+
+          <div class="tl-item reveal">
+            <div class="tl-card">
+              <span class="tl-date">FEB 2025 &mdash; JUN 2025</span>
+              <div class="tl-role">Animal Physiology Tutor</div>
+              <div class="tl-org">Ruang Akademis &mdash; HMD Biologi UI</div>
+              <ul class="tl-list">
+                <li>Led two intensive tutorials (pre-midterm and pre-final) on core Animal Physiology concepts.</li>
+                <li>Guided discussion across digestive, respiratory, circulatory, musculoskeletal, cardiovascular, reproductive, endocrine, and excretory systems.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-1">
+            <div class="tl-card">
+              <span class="tl-date">JAN 2025 &mdash; FEB 2025</span>
+              <div class="tl-role">Intern &mdash; Digital Division</div>
+              <div class="tl-org">SEA Today</div>
+              <ul class="tl-list">
+                <li>Wrote and published hard and soft news articles for the SEA Today website.</li>
+                <li>Created X (Twitter) threads to present news in a concise, compelling format.</li>
+                <li>Applied news-writing techniques tailored for digital platforms.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-2">
+            <div class="tl-card">
+              <span class="tl-date">MAR 2024 &mdash; JAN 2025</span>
+              <div class="tl-role">Staff, Multimedia Bureau</div>
+              <div class="tl-org">Badan Eksekutif Mahasiswa UI</div>
+              <ul class="tl-list">
+                <li>Created content for the UIKIHOW, UIFUN, MEDSVIEW, and BEMORY series.</li>
+                <li>Managed publications across 16 bureaus and ran the BEM UI 2024 Instagram account.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-3">
+            <div class="tl-card">
+              <span class="tl-date">APR 2024 &mdash; SEP 2024</span>
+              <div class="tl-role">Vice Head, Media &amp; Information</div>
+              <div class="tl-org">OKK UI</div>
+              <ul class="tl-list">
+                <li>Led the "Jelajah Fakultas" series to hundreds of thousands of views.</li>
+                <li>Managed a 12-member team and quality control across Instagram, TikTok, and X.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal reveal-delay-4">
+            <div class="tl-card">
+              <span class="tl-date">JAN 2023 &mdash; FEB 2023</span>
+              <div class="tl-role">Research &amp; Journalism Team</div>
+              <div class="tl-org">Pulitzer Center &mdash; RCCC UI</div>
+              <ul class="tl-list">
+                <li>Studied conservation and community engagement through expert-led sessions and field visits.</li>
+                <li>Completed a 3-day field study at Mount Gede Pangrango on buffer-zone management and park degradation.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     RESEARCH
+     ============================================= -->
+<section id="research">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">03 &mdash; Undergraduate research project</span>
+    </div>
+    <h2 class="section-title reveal">Undergraduate research project.</h2>
+
+    <div class="research-card reveal" style="margin-top: 48px;">
+      <div class="gene-badge">GENE &mdash; <em>SLC4A11</em></div>
+      <h3 class="research-title">Histological Analysis and SLC4A11 Gene Expression After Injection of Umbilical Cord Mesenchymal Stem Cells in a Rabbit (<em>Oryctolagus cuniculus</em>, Linnaeus 1758) Model of Corneal Endothelial Lesions.</h3>
+
+      <div class="research-meta">
+        <div class="research-meta-item">
+          <span class="eyebrow">Methods</span>
+          <div class="research-meta-value">H&amp;E Histology, qPCR, Cell Culture</div>
+        </div>
+        <div class="research-meta-item">
+          <span class="eyebrow">Model</span>
+          <div class="research-meta-value"><em>Oryctolagus cuniculus</em> (rabbit)</div>
+        </div>
+        <div class="research-meta-item">
+          <span class="eyebrow">Status</span>
+          <div class="research-meta-value">In progress &mdash; 2026</div>
+        </div>
+      </div>
+
+      <p class="research-summary">This study evaluates whether umbilical-cord-derived mesenchymal stem cells (UC-MSC) can support corneal endothelial repair, using a rabbit model of corneal endothelial lesions. It combines histological evaluation of corneal tissue with expression analysis of <em>SLC4A11</em> &mdash; a gene tied to endothelial pump function &mdash; to assess regeneration after UC-MSC injection.</p>
+
+      <div class="research-tags">
+        <span>UC-MSC injection</span>
+        <span>Histology</span>
+        <span>Gene expression / qPCR</span>
+        <span>Corneal endothelium</span>
+        <span>Animal model</span>
+        <span>Regenerative medicine</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     SKILLS
+     ============================================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">04 &mdash; Skills &amp; training</span>
+    </div>
+    <h2 class="section-title reveal">What's in the toolkit.</h2>
+
+    <div class="skills-grid" style="margin-top: 48px;">
+
+      <div class="skill-category reveal">
+        <span class="eyebrow">Laboratory techniques</span>
+        <div class="pill-grid">
+          <span class="pill">Cell culture</span>
+          <span class="pill">Microscopy</span>
+          <span class="pill">RNA extraction</span>
+          <span class="pill">PCR &amp; qPCR</span>
+          <span class="pill">Histology &amp; H&amp;E staining</span>
+          <span class="pill">Microscopy</span>
+          <span class="pill">Exosome isolation</span>
+          <span class="pill">Aseptic technique</span>
+          <span class="pill">Gel electrophoresis</span>
+          <span class="pill">Lab documentation</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-1">
+        <span class="eyebrow">Research</span>
+        <div class="pill-grid">
+          <span class="pill">Experimental design</span>
+          <span class="pill">Scientific literature review</span>
+          <span class="pill">Data analysis</span>
+          <span class="pill">ImageJ</span>
+          <span class="pill">Statistical methods</span>
+          <span class="pill">GLP compliance</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-2">
+        <span class="eyebrow">Communication</span>
+        <div class="pill-grid">
+          <span class="pill">Scientific writing</span>
+          <span class="pill">Digital content</span>
+          <span class="pill">Public speaking</span>
+          <span class="pill">Teaching &amp; tutoring</span>
+          <span class="pill">News writing</span>
+          <span class="pill">Social media management</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal reveal-delay-3">
+        <span class="eyebrow">Design &amp; tools</span>
+        <div class="pill-grid">
+          <span class="pill">Adobe Illustrator</span>
+          <span class="pill">Adobe Photoshop</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Microsoft Office</span>
+          <span class="pill">CapCut</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Training strip -->
+    <div class="training-strip reveal">
+      <span class="eyebrow">Training &amp; workshops</span>
+      <div class="training-items">
+        <div class="training-item">
+          <span class="tl-date">OCT 2025</span>
+          <div>
+            <div class="t-name">Pluripotent Stem Cell (PSC) 2D &amp; 3D Culture Workshop</div>
+            <div class="t-org">Thermo Fisher Scientific Singapore</div>
+          </div>
+        </div>
+        <div class="training-item">
+          <span class="tl-date">2025</span>
+          <div>
+            <div class="t-name">Genome Editing Techniques</div>
+            <div class="t-org">Seoul National University &amp; Daewoong Pharmaceutical Ind.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     ORGANIZATIONS
+     ============================================= -->
+<section id="organizations">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">05 &mdash; Organizations</span>
+    </div>
+    <h2 class="section-title reveal">Beyond the lab.</h2>
+    <p class="reveal" style="color:var(--ink-soft); margin-top:12px; margin-bottom:48px; font-size:1.02rem;">Student leadership and community involvement across four years.</p>
+
+    <div class="org-grid">
+      <div class="org-card reveal">
+        <span class="tl-date">FEB 2024 &mdash; FEB 2025</span>
+        <h4>Staff, Multimedia Bureau</h4>
+        <div class="org-sub">Badan Eksekutif Mahasiswa UI</div>
+        <p>Produced content across four series, managed publications for 16 bureaus, and ran the BEM UI 2024 Instagram presence.</p>
+      </div>
+      <div class="org-card reveal reveal-delay-1">
+        <span class="tl-date">APR 2024 &mdash; SEP 2024</span>
+        <h4>Vice Head, Media &amp; Information</h4>
+        <div class="org-sub">OKK UI</div>
+        <p>Led the "Jelajah Fakultas" series to hundreds of thousands of views. Managed a 12-member team across Instagram, TikTok, and X.</p>
+      </div>
+      <div class="org-card reveal reveal-delay-2">
+        <span class="tl-date">2023 &mdash; PRESENT</span>
+        <h4>Member</h4>
+        <div class="org-sub">HMD Biologi UI</div>
+        <p>Active member of the Biology Department Student Association, contributing to academic and outreach programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     GALLERY
+     ============================================= -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">06 &mdash; Gallery</span>
+    </div>
+    <h2 class="section-title reveal">In the field.</h2>
+    <p class="reveal" style="color:var(--ink-soft); margin-top:12px; margin-bottom:48px; font-size:1.02rem;">Moments from the lab, the classroom, and the field.</p>
+
+    <div class="gallery-grid reveal">
+
+      <div class="gallery-item" style="height:280px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="20" rx="2" stroke="var(--ink)" stroke-width="1.5"/><circle cx="16" cy="17" r="5" stroke="var(--ink)" stroke-width="1.5"/><path d="M11 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="var(--ink)" stroke-width="1.5"/></svg>
+          <span class="gallery-label">Laboratory work</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-item" style="height:200px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="var(--ink)" stroke-width="1.5"/><circle cx="16" cy="16" r="4" stroke="var(--ink)" stroke-width="1.5"/><line x1="16" y1="2" x2="16" y2="6" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="26" x2="16" y2="30" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="gallery-label">Microscopy</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-item" style="height:320px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M4 28L12 14l6 8 4-6 6 12H4z" stroke="var(--ink)" stroke-width="1.5" stroke-linejoin="round"/><circle cx="23" cy="8" r="3" stroke="var(--ink)" stroke-width="1.5"/></svg>
+          <span class="gallery-label">Field study</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-item" style="height:240px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="10" width="26" height="18" rx="2" stroke="var(--ink)" stroke-width="1.5"/><path d="M10 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" stroke="var(--ink)" stroke-width="1.5"/><line x1="16" y1="14" x2="16" y2="24" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="19" x2="21" y2="19" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="gallery-label">Conference</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-item" style="height:300px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zM6 28c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="gallery-label">Teaching</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+      <div class="gallery-item" style="height:220px;">
+        <div class="gallery-placeholder">
+          <svg class="gallery-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="3" width="11" height="11" rx="2" stroke="var(--ink)" stroke-width="1.5"/><rect x="18" y="3" width="11" height="11" rx="2" stroke="var(--ink)" stroke-width="1.5"/><rect x="3" y="18" width="11" height="11" rx="2" stroke="var(--ink)" stroke-width="1.5"/><rect x="18" y="18" width="11" height="11" rx="2" stroke="var(--ink)" stroke-width="1.5"/></svg>
+          <span class="gallery-label">Organization</span>
+        </div>
+        <div class="gallery-overlay"></div>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="margin-top:28px; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; color:var(--ink-muted); text-transform:uppercase; text-align:center;">
+      Photos coming soon — replace placeholders in the HTML
+    </p>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     EDUCATION
+     ============================================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-label reveal">
+      <span class="eyebrow">07 &mdash; Education</span>
+    </div>
+    <h2 class="section-title reveal">Foundation.</h2>
+
+    <div class="edu-card reveal" style="margin-top: 48px;">
+      <div class="edu-year-badge">2022 &mdash; 2026</div>
+      <div class="edu-body">
+        <h3>Bachelor of Science &mdash; Biology</h3>
+        <div class="edu-sub">University of Indonesia, Depok</div>
+        <span class="edu-track">Biomedical Sciences Track</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- =============================================
+     CONTACT
+     ============================================= -->
+<section id="contact-section">
+  <div class="wrap">
+    <div class="contact-inner">
+      <span class="eyebrow">08 &mdash; Let's connect</span>
+      <h2 class="contact-title">Let's connect.</h2>
+      <p class="contact-subtitle">Whether it's research, science communication, collaboration, or simply exchanging ideas, I'd be happy to hear from you.</p>
+      <div class="contact-actions">
+        <a class="btn btn-light" href="mailto:yudistiraadam04@gmail.com">Email</a>
+        <a class="btn btn-outline-light" href="https://linkedin.com/in/yudistiraadam" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer>
+  <div class="foot-inner">
+    <span>&copy; Yudistira Adam Mulyana</span>
+    <span>Built with HTML, CSS &amp; JavaScript</span>
+  </div>
+</footer>
+
+<!-- =============================================
+     JAVASCRIPT
+     ============================================= -->
+<script>
+(function() {
+  'use strict';
+
+  /* ---------- NAV SCROLL BEHAVIOUR ---------- */
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- MOBILE HAMBURGER ---------- */
+  const burger = document.getElementById('navBurger');
+  const drawer = document.getElementById('navDrawer');
+  burger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  // Close drawer on link click
+  document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  /* ---------- SCROLL REVEAL ---------- */
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mediaQuery.matches) {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    // Immediately show all
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  /* ---------- HERO: show immediately without waiting for IntersectionObserver ---------- */
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 80);
+    });
+  }, 100);
+
+  /* ---------- NAV ACTIVE STATE ---------- */
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const setActive = () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 96;
+      if (window.scrollY >= top) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      const href = link.getAttribute('href').replace('#', '');
+      if (href === current) {
+        link.style.color = 'var(--ink)';
+      }
+    });
+  };
+  window.addEventListener('scroll', setActive, { passive: true });
+
+})();
+</script>
+
+</body>
+</html>
